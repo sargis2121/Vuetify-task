@@ -53,7 +53,7 @@
               <v-col cols="12" sm="6">
                 <v-select
                   v-model="userAge"
-                  :items="['0-17', '18-29', '30-54', '54+']"
+                  :items="dialogAge"
                   label="Age*"
                   required
                 ></v-select>
@@ -104,6 +104,7 @@ export default {
         'Coding',
         'Basejump'
       ],
+      dialogAge: ['0-17', '18-29', '30-54', '54+'],
       dialog: false
     }
   },
