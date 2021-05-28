@@ -44,6 +44,7 @@
               </v-col>
               <v-col cols="12">
                 <v-text-field
+                  v-model="pass"
                   label="Password*"
                   type="password"
                   required
@@ -93,7 +94,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 export default {
   data () {
     return {
@@ -101,24 +102,37 @@ export default {
       lastName: '',
       userEmail: '',
       userAge: '',
+      pass: '',
       dialog: false
     }
   },
   computed: mapGetters(['userList']),
   methods: {
     ...mapMutations(['addUser']),
+    ...mapActions(['addList']),
 
     saveChange () {
-    //   debugger
-      if (this.firstName && this.lastName && this.userEmail && this.userAge) {
+      if (
+        this.firstName &&
+        this.lastName &&
+        this.userEmail &&
+        this.userAge &&
+        this.pass
+      ) {
         const user = {
-          fullname: this.firstName + this.lastName,
+          fullname: this.firstName + ' ' + this.lastName,
           age: this.userAge,
-          email: this.userEmail
+          email: this.userEmail,
+          password: this.pass
         }
-        this.addUser(user)
+        this.addList(user)
         this.dialog = false
       }
+      this.firstName = ''
+      this.lastName = ''
+      this.userEmail = ''
+      this.userAge = ''
+      this.pass = ''
     }
   }
 }
