@@ -60,17 +60,7 @@
               </v-col>
               <v-col cols="12" sm="6">
                 <v-autocomplete
-                  :items="[
-                    'Skiing',
-                    'Ice hockey',
-                    'Soccer',
-                    'Basketball',
-                    'Hockey',
-                    'Reading',
-                    'Writing',
-                    'Coding',
-                    'Basejump'
-                  ]"
+                  :items="items"
                   label="Interests"
                   multiple
                 ></v-autocomplete>
@@ -103,6 +93,17 @@ export default {
       userEmail: '',
       userAge: '',
       pass: '',
+      items: [
+        'Skiing',
+        'Ice hockey',
+        'Soccer',
+        'Basketball',
+        'Hockey',
+        'Reading',
+        'Writing',
+        'Coding',
+        'Basejump'
+      ],
       dialog: false
     }
   },
